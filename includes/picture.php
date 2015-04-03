@@ -11,8 +11,9 @@ if (empty($_GET['picture'])) {
 			AND p.album_id = al.id";
 	$result = $db->fetch($query);
 	if ($result['totalresults'] == 0) {
-		if (!empty($db->error)) {
-			echo $db->error . "<br />";
+		$error = $db->getError();
+		if (!empty($error)) {
+			echo $error . "<br />";
 		}
 		echo "no such picture";
 	} else {

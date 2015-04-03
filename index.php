@@ -26,8 +26,9 @@ if (!empty($_GET['action']) && $_GET['action'] == 'picture') {
 		<article>
 			<?php 
 			$db = new mydb($config);
-			if (!empty($db->error)) {
-				echo $db->error;
+			$error = $db->getError();
+			if (!empty($error)) {
+				echo $error;
 			} else {
 				$db->query("SET NAMES 'utf8'");
 				$db->query("SET CHARACTER SET 'utf8'");

@@ -30,8 +30,9 @@ if ($result['numrows'] > 0) {
 	}
 	echo "</nav>";
 } else {
-	if (!empty($db->error)) {
-		echo $db->error . "<br />";
+	$error = $db->getError();
+	if (!empty($error)) {
+		echo $error . "<br />";
 	}
 	echo "no results found!";
 }

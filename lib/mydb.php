@@ -3,8 +3,8 @@
 class mydb {
 
 	private $dblink;
-	public $error;
-	public $errno = 0;
+	private $error;
+	private $errno = 0;
 
 	public function __construct($params) {
 		if (!empty($params)) {
